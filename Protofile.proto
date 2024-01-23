@@ -1,0 +1,165 @@
+#VRML_SIM R2023a utf8
+# Describe the functionality of your PROTO here.
+# template language: javascript
+
+
+PROTO MyProto-21349979 [
+  field  SFVec3f     translation     0 0 0
+  field  SFRotation  rotation        0 0 1 0
+  field  SFString    Name            "MyProto-21349979"
+  field  SFString    controller      "C:\Users\shiri\Desktop\Test\controllers\robot_controller\robot_controller.py"                                                               # Is `Robot.controller`.
+  field  MFString    controllerArgs  []                                                                   # Is `Robot.controllerArgs`.
+  field  SFString    customData      ""                                                                   # Is `Robot.customData`.
+  field  SFBool      supervisor      FALSE                                                                # Is `Robot.supervisor`.
+  field  SFBool      synchronization TRUE                                                                 # Is `Robot.synchronization`.
+  field  SFBool      selfCollision   FALSE
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    controller IS controller
+    controllerArgs IS controllerArgs
+    customData IS customData
+    supervisor IS supervisor
+    synchronization IS synchronization
+    selfCollision IS selfCollision
+    children [
+      Transform {
+        translation 4.500000 -0.500000 0.041500
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.500000 0.500000 0.500000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry Cylinder {
+              radius 0.045
+              height 0.08
+            }
+          }
+        ]
+      }
+      GPS {    name "gps"    translation 4.5 -0.545 0.025  }
+      InertialUnit {
+      name "inertial unit"
+      translation 4.5 -0.5 0  # Position of the IMU relative to its parent node
+      rotation 1 0 0 1.57  # Orientation of the IMU relative to its parent node
+      enable_gyro TRUE  # Enable the gyro sensor
+      enable_accelerometer TRUE  # Enable the accelerometer sensor
+      enable_magnetometer TRUE  # Enable the magnetometer sensor
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -0.000001 1.000000 0.000000
+          anchor 4.500000 -0.545000 0.025000
+        }
+        device [
+          RotationalMotor {
+            name "motor2"
+            maxVelocity 10.0
+            maxTorque 10.0
+          }
+          PositionSensor {
+            name "motor2_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 4.500000 -0.545000 0.025000
+          rotation 0.043164 0.691999 -0.720607 3.040263
+          children [
+            Transform {
+              translation 0.000003 0.000016 0.000000
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.500000 0.500000 0.500000
+                    roughness 1.000000
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    radius 0.025
+                    height 0.01
+                  }
+                }
+              ]
+            }
+          ]
+          name "solid(1)"
+          boundingObject Transform {
+            translation 0.000003 0.000016 0.000000
+            children [
+              Cylinder {
+                radius 0.025
+                height 0.01
+              }
+            ]
+          }
+          physics Physics {
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -0.000000 1.000000 -0.000000
+          anchor 4.500003 -0.454984 0.025000
+        }
+        device [
+          RotationalMotor {
+            name "motor1"
+            maxVelocity 10.0
+            maxTorque 10.0
+          }
+          PositionSensor {
+            name "motor1_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 4.500003 -0.454984 0.025000
+          rotation 0.939919 0.241501 -0.241309 1.631924
+          children [
+            Transform {
+              translation 0.000443 0.000425 -0.002961
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.500000 0.500000 0.500000
+                    roughness 1.000000
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    radius 0.025
+                    height 0.01
+                  }
+                }
+              ]
+            }
+          ]
+          name "solid"
+          boundingObject Transform {
+            translation 0.000443 0.000425 -0.002961
+            children [
+              Cylinder {
+                radius 0.025
+                height 0.01
+              }
+            ]
+          }
+          physics Physics {
+          }
+        }
+      }
+    ]
+    name IS name
+    boundingObject Transform {
+      translation 4.500000 -0.500000 0.041500
+      children [
+        Cylinder {
+          radius 0.045
+          height 0.08
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+Instructions:
+
+1. Clone the Github repository to your local PC.
+
+2. Download and install the stable version of Webots 2023a (64 bit) from Cyberotics.
+Link: https://cyberbotics.com/
+
+3. The Webots supports Webots supports Python versions from 3.7.
+
+4. Ensure the webots PATH environment variable is added to the path to your python interpreter which is located in the Python installation folder
+
+5. Please enter the local occupancy grid in the robot controller.
+
+6. Up on adding the protos, please change the controller to "robot_controller"
+
+7. You may need to import some classes of the controller module. Ex: from controller import Robot, Motor, DistanceSensor, Pandas, enum.
+
+8. Create a sample world and run the Mazebot to watch it navigate. 
