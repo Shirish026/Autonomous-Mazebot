@@ -1,0 +1,7 @@
+Instructions:
+
+1. Please enter the local occupancy grid in the robot controller.
+
+2. Up on adding the protos, please change the controller to "robot_controller"
+
+3. You may need to import some classes of the controller module. Ex: from controller import Robot, Motor, DistanceSensor, Pandas, enum, etc.
